@@ -2,43 +2,40 @@ import 'package:flutter/material.dart';
 import 'counter_cubit.dart';
 import 'main.dart';
 
-// class calculateNum extends StatelessWidget {
-//   const calculateNum(Object context, {Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Calculate'),
-//       ),
-//     );
-//   }
-// }
+class calculateNum extends StatelessWidget {
 
+  final int input;
+  final int state;
 
-
-class calculateNum extends StatefulWidget {
-  const calculateNum({Key? key}) : super(key: key);
-
-  @override
-  State<calculateNum> createState() => _calculateNumState();
-}
-
-class _calculateNumState extends State<calculateNum> {
-  // int result;
-  //
-  // @override
-  // Widget build(BuildContext context) {
-  //   return ResultDisplay(text: '0');
-  // }
+  calculateNum({required this.input, required this.state});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Calculate'),
       ),
-      // body: Container(
-      //   child: Navigator.pop(context, true);
-      // )
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text('$input', style: const TextStyle(fontSize: 50),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('x', style: TextStyle(fontSize: 50),),
+              Text('$state', style: TextStyle(fontSize: 50),),
+
+              const Divider(
+                thickness: 2,
+              ),
+              Text('${input*state}'),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
+
+
